@@ -1,0 +1,9 @@
+member_id,week,status,start_date,end_date,coach_id,sessions,extra
+M00001,1,Active,2024-02-01,2024-03-01,C1,5,x
+M00002,2,Inactive,2024-02-01,,C2,3,x
+M00002,2,Active,2024-02-01,,,7,x
+M0003,3,Pending,2024-05-01,2024-04-01,C1,2,x
+M00004,99,Actve,2024-02-01,2024-03-01,C1,4,x
+M00005,4,active ,not-a-date,,C1,abc,x
+M00006,5,Active,2023-01-01,,NULL,25,x
+,6,Pending,2024-02-01,,C3,1,x
