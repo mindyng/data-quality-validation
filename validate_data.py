@@ -421,11 +421,11 @@ def main():
     errors.to_csv(out / f"{a.pipeline}_errors.csv", index=False)
     summ.to_csv(out / f"{a.pipeline}_summary.csv", index=False)
     with pd.ExcelWriter(out / f"{a.pipeline}_qc.xlsx") as xw:
-        summ.to_excel(xw, "summary", index=False)
-        errors.head(200_000).to_excel(xw, "errors", index=False)
-        profile.to_excel(xw, "profile", index=False)
+        summ.to_excel(xw, sheet_name="summary", index=False)
+        errors.head(200_000).to_excel(xw, sheet_name="errors", index=False)
+        profile.to_excel(xw, sheet_name="profile", index=False)
         if len(spec_issues):
-            spec_issues.to_excel(xw, "spec_issues", index=False)
+            spec_issues.to_excel(xw, sheet_name="spec_issues", index=False)
 
     n_err = int((errors["severity"] == "error").sum()) if len(errors) else 0
     n_warn = int((errors["severity"] == "warn").sum()) if len(errors) else 0
