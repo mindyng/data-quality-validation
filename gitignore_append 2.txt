@@ -1,9 +1,0 @@
-
-# Data and QC outputs (contain real row values)
-*.csv
-*.tsv
-*.parquet
-*.sas7bdat
-*.xlsx
-qc_out/
-!specs/*.xlsx
