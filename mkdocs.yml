@@ -1,0 +1,14 @@
+site_name: ELT Documentation
+theme:
+  name: material
+plugins:
+  - search
+  - print-site
+nav:
+  - Home: index.md
+  - ETL A:
+    - Overview: etl_a/overview.md
+    - Fields: etl_a/fields.md
+  - ETL B:
+    - Overview: etl_b/overview.md
+    - Fields: etl_b/fields.md
