@@ -1,28 +1,15 @@
-theme:
-  name: material
-  font: false                      # system fonts; avoids loading Google Fonts
-  palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to light mode
-  features:
-    - navigation.sections
-    - navigation.top
-    - search.highlight
-    - content.code.copy
+## Known issues
 
-markdown_extensions:
-  - admonition
-  - toc:
-      permalink: true
+### OCHIN
+
+| Column | Issue | Severity | Status | Notes |
+|--------|-------|----------|--------|-------|
+| degree | Same value appears in two spellings | Medium | In progress | Mapping table being drafted |
+| (column) | (issue) | Low | To do | |
+
+### HCAI
+
+| Column | Issue | Severity | Status | Notes |
+|--------|-------|----------|--------|-------|
+| (column) | (issue) | High | To do | |
+| (column) | (issue) | Low | Done | Resolved in contractor v2 delivery |
