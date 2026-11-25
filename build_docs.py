@@ -12,36 +12,22 @@ project/
 from pathlib import Path
 from jinja2 import Template
 
-# Replace with: from my_specs import SPECS  (same shape as below)
 SPECS = {
-    "etl_a": {"title": "ETL A", "fields": [
-        {"id": 1001, "name": "account_id", "type": "varchar(10)",
-         "nullable": False, "description": "Unique account identifier"},
-    ]},
-    "etl_b": {"title": "ETL B", "fields": [
-        {"id": 2001, "name": "record_id", "type": "int",
-         "nullable": False, "description": "Unique record identifier"},
-    ]},
+    "etl_a": {"title": "ETL A", "columns": {
+        "degree": ["Bachelor's", "Master's", "Doctorate"],
+        "status": ["Submitted", "Approved", "Denied"],
+    }},
+    "etl_b": {"title": "ETL B", "columns": {
+        "pathway": ["Pathway 1", "Pathway 2"],
+    }},
 }
 
-TPL = Template("""# {{ title }}: field dictionary
+TPL = Template("""# {{ title }}: expected values
 
 *Generated from the spec. Do not edit here; add notes in overview.md.*
 
-| ID | Column | Type | Nullable | Description |
-|----|--------|------|----------|-------------|
-{% for f in fields -%}
-| {{ f.id }} | {{ f.name }} | {{ f.type }} | {{ "Yes" if f.nullable else "No" }} | {{ f.description }} |
+| Column | Allowed values |
+|--------|----------------|
+{% for col, vals in columns.items() -%}
+| {{ col }} | {{ vals | join(", ") }} |
 {% endfor %}""")
-
-Path("docs").mkdir(exist_ok=True)
-if not Path("docs/index.md").exists():
-    Path("docs/index.md").write_text("# ELT Documentation\n\nArchitecture and data flow.\n")
-
-for key, spec in SPECS.items():
-    d = Path("docs") / key
-    d.mkdir(parents=True, exist_ok=True)
-    (d / "fields.md").write_text(TPL.render(**spec))        # always regenerated
-    if not (d / "overview.md").exists():                    # never overwritten
-        (d / "overview.md").write_text(
-            f"# {spec['title']}\n\nPurpose, owner, known issues, change log.\n")
